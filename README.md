@@ -27,9 +27,6 @@ A Chrome extension that allows you to bookmark YouTube videos and add notes to t
 5. Click on any bookmark to open the video
 6. Use the delete button to remove bookmarks you no longer need
 
-## Storage
-
-All bookmarks are stored locally in your browser using Chrome's storage API. Your data is not sent to any external servers.
 
 ## Development
 
