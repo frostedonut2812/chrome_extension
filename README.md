@@ -10,14 +10,6 @@ A Chrome extension that allows you to bookmark YouTube videos and add notes to t
 - Delete bookmarks you no longer need
 - Quick access to bookmarked videos
 
-## Installation
-
-1. Download or clone this repository
-2. Open Chrome and go to `chrome://extensions/`
-3. Enable "Developer mode" in the top right corner
-4. Click "Load unpacked" and select the extension directory
-5. The extension icon should appear in your Chrome toolbar
-
 ## Usage
 
 1. Navigate to any YouTube video
