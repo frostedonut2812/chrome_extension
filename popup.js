@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const videoInfo = document.getElementById('video-info');
   const bookmarksContainer = document.getElementById('bookmarks-container');
 
-  // Get current tab
+
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   
   // Check if we're on YouTube
@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     return;
   }
 
-  // Request video info (including currentTime) from content script
   chrome.tabs.sendMessage(
     tab.id,
     { action: 'getVideoInfo' },
@@ -32,7 +31,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         <p class="timestamp">Current Time: ${formatTime(currentTime)}</p>
       `;
 
-      // Load existing bookmarks
       loadBookmarks();
 
       // Add bookmark button click handler
@@ -75,7 +73,6 @@ async function loadBookmarks() {
     return;
   }
 
-  // Sort bookmarks by timestamp (newest first)
   bookmarks.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 
   bookmarksContainer.innerHTML = bookmarks.map((bookmark, index) => `
