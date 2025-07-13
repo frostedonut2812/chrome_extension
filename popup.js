@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
   
-  // Check if we're on YouTube
   if (!tab.url.includes('youtube.com/watch')) {
     videoInfo.innerHTML = '<p>Please navigate to a YouTube video to use this extension.</p>';
     addBookmarkBtn.disabled = true;
