@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
       }
       const { videoId, videoTitle, currentTime } = response;
-      // Display current video info with playback time
       videoInfo.innerHTML = `
         <h3>${videoTitle}</h3>
         <p class="timestamp">Video ID: ${videoId}</p>
@@ -32,7 +31,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       loadBookmarks();
 
-      // Add bookmark button click handler
       addBookmarkBtn.onclick = async () => {
         const note = noteInput.value.trim();
         const timestamp = new Date().toISOString();
@@ -44,11 +42,10 @@ document.addEventListener('DOMContentLoaded', async () => {
           url: tab.url,
           playbackTime: currentTime
         };
-        // Save bookmark to storage
+        
         const { bookmarks = [] } = await chrome.storage.local.get('bookmarks');
         bookmarks.push(bookmark);
         await chrome.storage.local.set({ bookmarks });
-        // Clear input and reload bookmarks
         noteInput.value = '';
         loadBookmarks();
       };
@@ -85,7 +82,6 @@ async function loadBookmarks() {
     </div>
   `).join('');
 
-  // Add delete button handlers
   document.querySelectorAll('.delete-btn').forEach(button => {
     button.addEventListener('click', async (e) => {
       const index = parseInt(e.target.dataset.index);
