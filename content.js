@@ -1,4 +1,3 @@
-// Listen for messages from the popup
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === 'getVideoInfo') {
     const videoId = new URL(window.location.href).searchParams.get('v');
@@ -9,7 +8,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   }
 });
 
-// Add a small indicator when a video is bookmarked
 function showBookmarkIndicator() {
   const indicator = document.createElement('div');
   indicator.style.cssText = `
@@ -35,7 +33,6 @@ function showBookmarkIndicator() {
   }, 2000);
 }
 
-// Listen for storage changes to show bookmark indicator
 chrome.storage.onChanged.addListener((changes, namespace) => {
   if (namespace === 'local' && changes.bookmarks) {
     showBookmarkIndicator();
